@@ -27,18 +27,38 @@ function twoNums(nums) {
     })
 }
 
-function threeNums(nums) {
-    let collisionTable = [];
+// function threeNums(nums) {
+//     let collisionTable = [];
 
+//     nums.forEach(num => {
+//         nums.forEach(num2 => {
+//             nums.forEach(num3 => {
+//                 if ((num + num2 + num3) == 2020) {
+//                     displayThreeResults(num, num2, num3);
+//                 }
+//             })
+//         })
+//     })
+// }
+
+function threeNums(nums) {
+    let collisionTable3 = [];
+    
+    nums.forEach(num => {
+        // //Add each number
+        // collisionTable3[num] = num;
+        //Add the complement of that number.
+        collisionTable3[total - num] = num;  //num 2 + num3
+    });
+    
     nums.forEach(num => {
         nums.forEach(num2 => {
-            nums.forEach(num3 => {
-                if ((num + num2 + num3) == 2020) {
-                    displayThreeResults(num, num2, num3);
-                }
-            })
-        })
-    })
+            // collisionTable3[num + num2] = num + num2;
+            if (collisionTable3[num + num2]) {
+                displayThreeResults(num, num2, collisionTable3[num+num2]);
+            }
+        });
+    });
 }
 
 function displayTwoResults(ans1, ans2) {
