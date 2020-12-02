@@ -19,14 +19,14 @@ function openList(e) {
         
     };
     reader.readAsText(file);
-  }
-  
-  function displayResults(ans1, ans2) {
-    answer  = document.getElementById('answer');
-    answer.textContent = `${ans1} * ${ans2} = ${ans1 * ans2}`;
-  }
-  
-  const total = 2020;
+}
 
-  document.getElementById('numsFile')
+function displayResults(ans1, ans2) {
+    answer = document.getElementById('answer');
+    answer.textContent = `${ans1} * ${ans2} = ${ans1 * ans2}`;
+}
+
+const total = 2020;
+
+document.getElementById('numsFile')
     .addEventListener('change', openList, false);
