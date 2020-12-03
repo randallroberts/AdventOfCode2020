@@ -14,6 +14,7 @@ function openList(e) {
         })
         
         validateStrings(brokenDownNums);
+        validateStringPositions(brokenDownNums);
     };
     reader.readAsText(file);
 }
@@ -38,11 +39,28 @@ function validateStrings(list) {
         }
     })
 
-    displayResult(valid);
+    displayResult(valid, 'answer');
 }
 
-function displayResult(ans) {
-    answer = document.getElementById('answer');
+function validateStringPositions(list) {
+    valid = 0;
+
+    list.forEach((item) => {
+        testString = item[4];
+
+        if (testString[parseInt(item[0])-1] == item[2] &&  testString[parseInt(item[1])-1] !== item[2]) {
+            valid++;
+        }
+        else if (testString[parseInt(item[0])-1] !== item[2] && testString[parseInt(item[1])-1] == item[2]) {
+            valid++;
+        }
+    })
+
+    displayResult(valid, 'answerB');
+}
+
+function displayResult(ans, element) {
+    answer = document.getElementById(element);
     answer.textContent = `Valid Strings: ${ans}`;
 }
 
