@@ -8,7 +8,18 @@ function openList(e) {
         const list = e.target.result;
         const rows = list.split('\r\n');
         
-        countTrees(rows, 3, 1);
+        const ans1 = countTrees(rows, 1, 1);
+        const ans2 = countTrees(rows, 3, 1);
+        const ans3 = countTrees(rows, 5, 1);
+        const ans4 = countTrees(rows, 7, 1);
+        const ans5 = countTrees(rows, 1, 2);
+
+        displayResult(ans1, "answer");
+        displayResult(ans2, "answer2");
+        displayResult(ans3, "answer3");
+        displayResult(ans4, "answer4");
+        displayResult(ans5, "answer5");
+        displayResult(ans1*ans2*ans3*ans4*ans5, "answerFinal");
     };
     reader.readAsText(file);
 }
@@ -34,7 +45,7 @@ function countTrees(treeMap, vx, vy) {
             }
         } 
     }
-    displayResult(trees, 'answer');
+    return trees;
 }
 
 function displayResult(ans, element) {
